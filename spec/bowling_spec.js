@@ -1,11 +1,21 @@
 describe("Bowling Score Card", function() {
 
+	var game;
   var player;
   var frame1;
 
   beforeEach(function() {
+  	game = new Game();
   	player = new Player("Emily");
   	frame1 = new Frame();
+  });
+
+  describe("Game", function() {
+
+  	it("has 10 frames", function() {
+  		expect(game.frames.length).toEqual(10);
+  	});
+
   });
 
   describe("Player", function() {
