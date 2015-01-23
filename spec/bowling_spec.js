@@ -16,6 +16,11 @@ describe("Bowling Score Card", function() {
   		expect(game.frames.length).toEqual(10);
   	});
 
+  	it("moves from frame 1 through to 10", function() {
+  		game.play
+  		expect(game.frames.length).toEqual(9)
+  	});
+
   });
 
   describe("Player", function() {
