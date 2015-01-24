@@ -41,16 +41,19 @@ describe("Bowling Score Card", function() {
 
   describe("Frame", function() {
 
-  	// describe("Frame 10", function() {
-  	// 	it("will allow a 3rd bowl where a player scores a spare in their second bowl", function() {
+  	it("will keep track of the score for the current frame", function() {
+  		game.play();
+  		game.play();
+  		expect(game.frame.score).toEqual(10 - Number(game.frame.pins));
+  	});
 
-  	// 	});
-  	// });
+  	describe("Frame 10", function() {
+  		// it("will allow a 3rd bowl where a player scores a spare in their second bowl", function() {
+
+  		// });
+  	});
 
   });
-
-
-
 
 
 });
