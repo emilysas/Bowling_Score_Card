@@ -20,7 +20,7 @@ describe("Bowling Score Card", function() {
   	});
 
   	it("ends after frame 10", function() {
-  		for (var i = 1; i <= 10; i++) {game.frames.shift};
+  		for (var i = 1; i <= 10; i++) {game.frames.shift()};
   		expect(game.play()).toEqual("You have bowled all 10 frames, Game Over");
   	});
 

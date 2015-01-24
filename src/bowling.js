@@ -25,7 +25,9 @@ var ScoreCard = function(){
 };
 
 Player.prototype.bowl = function(frameNumber) {
-	if (frameNumber.bowl === 2) {
+	if (frameNumber === undefined) {
+		return "You have bowled all 10 frames, Game Over"
+	} else if (frameNumber.bowl === 2) {
 		return "You've had two bowls already this frame, please start a new frame"
 	} else if (frameNumber.pins === 0) {
 		return "All your pins are down, please start a new frame"
