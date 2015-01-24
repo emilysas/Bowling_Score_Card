@@ -3,6 +3,7 @@ var Player = function(name) {
 };
 
 var Game = function(player) {
+	this.player = player;
 	this.frames = [frame1 = new Frame(), 
 								frame2 = new Frame(), 
 								frame3 = new Frame(), 
@@ -16,25 +17,17 @@ var Game = function(player) {
 }
 
 var Frame = function() {
-	var pins = 10;Vz`z`ZAaV
-	var bowl = 0;
-
-	this.remainingPins = function() {
-		return pins;
-	};
-
-	this.bowlCount = function() {
-		return bowl;
-	};
+	this.pins = 10;
+	this.bowl = 0;
 };
 
 var ScoreCard = function(){
 };
 
 Player.prototype.bowl = function(frameNumber) {
-	if (frameNumber.bowlCount === 2) {
+	if (frameNumber.bowl === 2) {
 		return "You've had two bowls already this frame, please start a new frame"
-	} else if (frameNumber.remainingPins === 0) {
+	} else if (frameNumber.pins === 0) {
 		return "All your pins are down, please start a new frame"
 	} else {
 		knockedDownPins = this.knockDownPins(frameNumber);	
@@ -44,15 +37,15 @@ Player.prototype.bowl = function(frameNumber) {
 };
 
 Player.prototype.knockDownPins = function(frameNumber) {
-	knockedDownPins = Math.floor(Math.random()*(frameNumber.remainingPins+1));
-	frameNumber.remainingPins -= knockedDownPins;
-	frameNumber.bowlCount += 1;
+	knockedDownPins = Math.floor(Math.random()*(frameNumber.pins+1));
+	frameNumber.pins -= knockedDownPins;
+	frameNumber.bowl += 1;
 	return knockedDownPins;
 }
 
 Game.prototype.play = function() {
-	frame = this.frames.shift;
-	result = player.bowl(frame);
+	frame = this.frames.shift();
+	result = this.player.bowl(frame);
 	return result;
 }
 
