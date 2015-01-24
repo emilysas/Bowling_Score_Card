@@ -5,12 +5,12 @@ var Player = function(name) {
 var Frame = function() {
 	this.pins = 10;
 	this.bowl = 0;
+	this.score = 0;
 };
 
 var Game = function(player) {
 	this.player = player;
-	this.frames = [frame1 = new Frame(), 
-								frame2 = new Frame(), 
+	this.frames = [frame2 = new Frame(), 
 								frame3 = new Frame(), 
 								frame4 = new Frame(), 
 								frame5 = new Frame(), 
@@ -19,19 +19,22 @@ var Game = function(player) {
 								frame8 = new Frame(), 
 								frame9 = new Frame(), 
 								frame10 = new Frame()]
+	this.frame = frame1 = new Frame();
 }
 
 var ScoreCard = function(){
 };
 
 Player.prototype.bowl = function(frame) {
-	if (frame === undefined) {
-		return "You have bowled all 10 frames, Game Over"
+	knockedDownPins = this.knockDownPins(frame);
+	if (knockedDownPins === 10) {
+		frame.strikeScored();
+	} else if (frame.bowl === 2 && frame.pins === 0) {
+		frame.spareScored();
 	} else {
-		knockedDownPins = this.knockDownPins(frame);	
-		return knockedDownPins;
+		frame.score += knockedDownPins;
 	}
-	
+	return knockedDownPins;	
 };
 
 Player.prototype.knockDownPins = function(frame) {
@@ -41,26 +44,20 @@ Player.prototype.knockDownPins = function(frame) {
 	return knockedDownPins;
 }
 
-
-Frame.prototype.strike = function() {
+Frame.prototype.strikeScored = function() {
 	return "Strike!"
 }
 
-Frame.prototype.spare = function() {
+Frame.prototype.spareScored = function() {
 	return "Spare!"
 }
 
 Game.prototype.play = function() {
-	frame = this.frames.shift();
-	firstBowl = this.player.bowl(frame);
-	return firstBowl;
-	if (firstBowl === 10) {
-		frame.strike();
+	frame = this.frame;
+	if (frame === undefined) {
+		return "You have bowled all 10 frames, Game Over"
 	} else {
-		secondBowl = this.player.bowl(frame);
-		return secondBowl;
-		if (frame.pins === 0) {
-			frame.spare();
-		}  
-	}
+		bowl = this.player.bowl(frame);
+		return bowl;
+	};
 }
