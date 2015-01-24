@@ -9,7 +9,7 @@ A score card requires:
 * 10 frames per game
 
 		- The first 9 frames allow one or two throws
-		- The 10th frame can has two to three throws (in the event of a strike or spare)
+		- The 10th frame can have two to three throws (in the event of a strike or spare)
 
 
 * 10 pins at the beginning of each frame
