@@ -11,3 +11,11 @@ Frame.prototype.strikeScored = function() {
 Frame.prototype.spareScored = function() {
 	return "Spare!"
 }
+
+Frame.prototype.pinsKnockedDown = function(pins) {
+	this.pins -= pins;
+}
+
+Frame.prototype.bowlNumber = function() {
+	this.bowl += 1;
+}
