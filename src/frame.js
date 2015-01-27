@@ -1,8 +1,13 @@
 var Frame = function() {
+	this.frameNumber = 1;
 	this.pins = 10;
-	this.bowl = 0;
 	this.score = 0;
+	this.bowl = 0;
 };
+
+Frame.prototype.isFrameOver = function() {
+	if (this.bowl >= 2 && this.frameNumber !== 10) {return true};
+}
 
 Frame.prototype.strikeScored = function() {
 	return "Strike!"
@@ -18,4 +23,8 @@ Frame.prototype.pinsKnockedDown = function(pins) {
 
 Frame.prototype.bowlNumber = function() {
 	this.bowl += 1;
+}
+
+Frame.prototype.addToScore = function(score) {
+	this.score += score
 }

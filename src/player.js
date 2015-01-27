@@ -16,7 +16,7 @@ Player.prototype.bowl = function(frame) {
 
 Player.prototype.knockDownPins = function(frame) {
 	knockedDownPins = Math.floor(Math.random()*(frame.pins+1));
-	frame.pinsKnockedDown(knockedDownPins)
-	frame.bowlNumber
+	frame.pinsKnockedDown(knockedDownPins);
+	frame.bowlNumber();
 	return knockedDownPins;
 }

@@ -48,9 +48,18 @@ describe("Bowling Score Card", function() {
   	});
 
   	describe("Frame 10", function() {
-  		// it("will allow a 3rd bowl where a player scores a spare in their second bowl", function() {
+  		it("will allow a 3rd bowl where a player scores a spare in their second bowl", function() {
+  			frame10.spareScored();
+  			frame10.bowl === 2;
+  			expect(game.play()).not.toEqual("You have bowled all 10 frames, Game Over")
+  		});
 
-  		// });
+  		it("will not allow a 3rd bowl where a player doesn't score a spare or a strike in their second bowl", function() {
+  			game.frames = [frame10 = new Frame()]
+  			game.frame.bowl = 2;
+  			game.frame.pins = 3;
+  			expect(game.play()).toEqual("You have bowled all 10 frames, Game Over")
+  		});
   	});
 
   });
