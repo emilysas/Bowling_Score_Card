@@ -65,7 +65,7 @@ describe("Bowling Score Card", function() {
       it("will reset the pins after a strike or spare", function() {
         game.frames = [frame10 = new Frame()];
         game.frame.pins = 0;
-        game.resetPins();
+        game.frame.resetPins();
         expect(game.frame.pins).toEqual(10);
       })
   	});

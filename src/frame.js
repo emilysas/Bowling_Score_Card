@@ -28,3 +28,9 @@ Frame.prototype.bowlNumber = function() {
 Frame.prototype.addToScore = function(score) {
 	this.score += score
 }
+
+Frame.prototype.resetPins = function() {
+	if ((this.bowl === 1 || 2) && this.pins === 0) {
+		this.pins = 10;
+	}
+}
