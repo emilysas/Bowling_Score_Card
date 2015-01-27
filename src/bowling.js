@@ -8,18 +8,10 @@ var Frame = function() {
 	this.score = 0;
 };
 
-var Game = function(player) {
+var Game = function(player, frames = []) {
 	this.player = player;
-	this.frames = [frame2 = new Frame(), 
-								frame3 = new Frame(), 
-								frame4 = new Frame(), 
-								frame5 = new Frame(), 
-								frame6 = new Frame(), 
-								frame7 = new Frame(), 
-								frame8 = new Frame(), 
-								frame9 = new Frame(), 
-								frame10 = new Frame()]
-	this.frame = frame1 = new Frame();
+	this.frames = frames;
+	this.frame = frames[0] || undefined;
 }
 
 var ScoreCard = function(){
@@ -58,6 +50,6 @@ Game.prototype.play = function() {
 		return "You have bowled all 10 frames, Game Over"
 	} else {
 		bowl = this.player.bowl(frame);
-		return bowl;
+		return bowl; 
 	};
 }
