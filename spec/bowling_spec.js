@@ -11,7 +11,7 @@ describe("Bowling Score Card", function() {
   describe("Game", function() {
 
   	it("has 10 frames", function() {
-  		expect(game.frames.length + 1).toEqual(10);
+  		expect(game.frames.length).toEqual(10);
   	});
 
   	it("moves from frame 1 through to 10", function() {
