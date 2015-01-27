@@ -48,9 +48,10 @@ describe("Bowling Score Card", function() {
   	});
 
   	describe("Frame 10", function() {
-  		it("will allow a 3rd bowl where a player scores a spare in their second bowl", function() {
-  			frame10.spareScored();
-  			frame10.bowl === 2;
+  		it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
+  			game.frames = [frame10 = new Frame()]
+        game.frame.bowl = 2;
+        game.frame.pins = 0;
   			expect(game.play()).not.toEqual("You have bowled all 10 frames, Game Over")
   		});
 
@@ -60,6 +61,13 @@ describe("Bowling Score Card", function() {
   			game.frame.pins = 3;
   			expect(game.play()).toEqual("You have bowled all 10 frames, Game Over")
   		});
+
+      it("will reset the pins after a strike or spare", function() {
+        game.frames = [frame10 = new Frame()];
+        game.frame.pins = 0;
+        game.resetPins();
+        expect(game.frame.pins).toEqual(10);
+      })
   	});
 
   });
