@@ -3,19 +3,25 @@ var Player = function(name) {
 };
 
 Player.prototype.bowl = function(frame, scorecard) {
-	knockedDownPins = this.knockDownPins(frame);
-	if (knockedDownPins === 10) {
+	var frame = frame;
+	console.log(frame || "hello");
+	var score = this.knockDownPins(frame);
+	var scorecard = scorecard;
+	if (score === 10) {
 		frame.strikeScored(scorecard);
 	} else if (frame.bowl === 2 && frame.pins === 0) {
 		frame.spareScored(scorecard);
 	} else {
-		frame.addToScore(knockedDownPins, scorecard)
+		frame.addToScore(score, scorecard)
 	}
-	return knockedDownPins;	
+	return score;	
 };
 
 Player.prototype.knockDownPins = function(frame) {
-	knockedDownPins = Math.floor(Math.random()*(frame.pins+1));
+	var frame = frame;
+	var pins = frame.pins;
+	var knockedDownPins = Math.floor(Math.random()*(pins+1));
+	console.log(knockedDownPins);
 	frame.pinsKnockedDown(knockedDownPins);
 	frame.bowlNumber();
 	return knockedDownPins;

@@ -23,18 +23,40 @@ A score card requires:
 		- Spare - 10 pins over the frame.  When player has first throw in next frame the socre is added to this one.
 		
 
-NB - no easy way to do inheritance in JS. Might be good to have a lastFrame object which inherits from Frame. Could do this using (as per p.115, Haverbeke 2009):
 
-function clone(object) {
-  function cloneConstructor() {}
-  cloneConstructor.prototype = object;
-  return new cloneConstructor();
-end
-
-function lastFrame(){
-  Frame.call(this);
-}
-
-lastFrame.prototype = clone(Frame.prototype);
-lastFrame.prototype.constructor = lastFrame;
+Game Objects
 	
+
+	Frame is responsible for:
+
+	* knowing how many pins (pincount or array of pins)
+	* whether another bowl allowed (need to ask whether another bowl allowed)
+	* know whether strike or spare (expose interface to query strike or spare)
+
+	doesn't know:
+
+	* player
+	* score
+
+	Player responsible for:
+
+	* knowing name/metrics
+	* bowling
+
+	doesn't know:
+
+	* score
+
+	Game is responsbile for:
+
+	* players
+	* score
+	* responsbility for starting/ending
+	* managing running game
+
+	Scorecard: 
+
+	* calculates score
+
+
+

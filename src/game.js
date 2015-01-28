@@ -1,8 +1,8 @@
 var Game = function(player, scorecard, frames = []) {
 	this.player = player;
+	this.scorecard = scorecard;
 	this.frames = frames;
 	this.frame = frames[0];
-	this.scorecard = scorecard;
 }
 
 Game.prototype.play = function() {
@@ -12,10 +12,9 @@ Game.prototype.play = function() {
 		return this.frame;
 	} 
 	frame = this.frame;
-	if (frame.frameNumber === 10 && frame.isFrameOver() && frame.pins >= 1) {
+	if (frame.frameNumber === 10 && frame.isFrameOver()) {
 		return "You have bowled all 10 frames, Game Over"
 	} else {
-		bowl = this.player.bowl(frame, this.scorecard);
-		return bowl; 
+		return this.player.bowl(frame, this.scorecard);
 	};
 }

@@ -6,7 +6,7 @@ var Frame = function() {
 };
 
 Frame.prototype.isFrameOver = function() {
-	if ((this.bowl === 2 && this.frameNumber !== 10) || this.bowl ===3) {return true};
+	if ((this.pins > 0 && (this.frameNumber < 10 || this.bowl === 2)) || this.bowl === 3) {return true};
 }
 
 Frame.prototype.strikeScored = function(scorecard) {
