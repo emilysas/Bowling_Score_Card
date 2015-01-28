@@ -23,4 +23,13 @@ describe("Game", function() {
 		expect(game.currentFrame.frameNumber).toEqual(2);
 	});
 
+	describe("Scoring", function() {
+
+		it("will know the score from the first bowl in each frame", function() {
+  	game.play();
+  	expect(game.scorecard[0][0]).toEqual(10 - game.currentFrame.pins)
+  	});
+
+	});
+
  });

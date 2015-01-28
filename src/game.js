@@ -1,13 +1,17 @@
 var Game = function(player, frames = []) {
 	this.player = player;
 	this.playerUsername = player.username;
-	this.frames = frames
-	this.currentFrame = frames[0]
+	this.frames = frames;
+	this.currentFrame = frames[0];
+	this.scorecard = [];
+
 }
 
 Game.prototype.play = function() {
 	var frame = this.frame();
-	return player.bowl(frame);
+	score = player.bowl(frame);
+	this.addScore(score)
+	return score;
 }
 
 Game.prototype.frame = function() {
@@ -22,4 +26,13 @@ Game.prototype.nextFrame = function() {
 	this.frames.shift();
 	this.currentFrame = this.frames[0];
 	return this.currentFrame;
-}
+};
+
+Game.prototype.addScore = function(score) {
+	var frame = this.currentFrame.frameNumber;
+	if (this.scorecard[frame - 1] === undefined) {
+		this.scorecard.push([score])
+	} else {
+		this.scorecard[frame-1].push(score)
+	}
+};
