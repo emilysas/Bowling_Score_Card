@@ -30,6 +30,22 @@ describe("Game", function() {
   	expect(game.scorecard[0][0]).toEqual(10 - game.currentFrame.pins)
   	});
 
+  	it("will know the score from the second bowl in each frame", function() {
+  		game.play();
+  		game.play();
+  		game.play();
+  		expect(game.scorecard.length).toBeGreaterThan(1)
+  	});
+
+  	it("will calculate the total score of each frame", function() {
+  		game.play();
+  		game.play();
+  		expect(game.scorecard[0][2]).toEqual(game.scorecard[0][0] + game.scorecard[0][1])
+  	});
+  	// it("when a strike occurs, it will not calculate the score until after the next frame", function() {
+
+  	// });
+
 	});
 
  });

@@ -4,7 +4,6 @@ var Game = function(player, frames = []) {
 	this.frames = frames;
 	this.currentFrame = frames[0];
 	this.scorecard = [];
-
 }
 
 Game.prototype.play = function() {
@@ -31,8 +30,16 @@ Game.prototype.nextFrame = function() {
 Game.prototype.addScore = function(score) {
 	var frame = this.currentFrame.frameNumber;
 	if (this.scorecard[frame - 1] === undefined) {
-		this.scorecard.push([score])
+		this.scorecard.push([score]);
 	} else {
-		this.scorecard[frame-1].push(score)
+		this.scorecard[frame - 1].push(score);
+		var total = this.getFrameTotal(score);
+		this.scorecard[frame - 1].push(total);
 	}
 };
+
+Game.prototype.getFrameTotal = function (score) {
+	var frame = this.currentFrame.frameNumber;
+	var total = this.scorecard[frame - 1][0] + score;
+	return total;
+}
