@@ -23,10 +23,4 @@ describe("Game", function() {
 		expect(game.currentFrame.frameNumber).toEqual(2);
 	});
 
-//   	it("ends after frame 10", function() {
-//   		game.frame.frameNumber = 10;
-//       game.frame.bowl = 3;
-//   		expect(game.play()).toEqual("You have bowled all 10 frames, Game Over");
-//   	});
-
-  });
+ });
