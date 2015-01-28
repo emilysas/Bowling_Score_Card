@@ -2,9 +2,16 @@ var Frame = function() {
 	// this.frameNumber = 1;
 	this.pins = 10;
 	// this.score = 0;
-	// this.bowl = 0;
+	this.bowlsHadThisFrame = 0;
 };
 
+Frame.prototype.isAllowingBowl = function() {
+	if (this.bowlsHadThisFrame < 2) {
+		return true;
+	} else {
+		return false;
+	}
+}
 // Frame.prototype.isFrameOver = function() {
 // 	if ((this.pins > 0 && (this.frameNumber < 10 || this.bowl === 2)) || this.bowl === 3) {return true};
 // }

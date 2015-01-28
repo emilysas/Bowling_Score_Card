@@ -51,11 +51,11 @@ describe("Bowling Score Card", function() {
 
   	it ("will allow a maximum of 2 bowls (excl. frame10)", function () {
   		frame.bowlsHadThisFrame = 0;
-  		expect(frame.isAllowingBowl).toEqual(true)
+  		expect(frame.isAllowingBowl()).toEqual(true)
   		frame.bowlsHadThisFrame = 1;
-  		expect(frame.isAllowingBowl).toEqual(true)
+  		expect(frame.isAllowingBowl()).toEqual(true)
   		frame.bowlsHadThisFrame = 2; 
-  		expect(frame.isAllowingBowl).toEqual(false)
+  		expect(frame.isAllowingBowl()).toEqual(false)
   	})
 
 //   	describe("Frame 10", function() {
