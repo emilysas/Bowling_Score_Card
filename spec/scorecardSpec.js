@@ -72,12 +72,12 @@ describe("Bowling Score Card", function() {
   		frame10.bowlsHadThisFrame = 2; 
   		expect(frame10.isAllowingBowl()).toEqual(false);
 		});
-		// it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
-		// 	game.frames = [frame10 = new Frame()]
-  //     game.frame.bowl = 2;
-  //     game.frame.pins = 0;
-		// 	expect(game.play()).not.toEqual("You have bowled all 10 frames, Game Over")
-		// });
+
+		it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
+			frame10.pins = 0;
+			frame10.bowlsHadThisFrame = 2; 
+  		expect(frame10.isAllowingBowl()).toEqual(true);
+		});
 
 		// it("will not allow a 3rd bowl where a player doesn't score a spare or a strike in their second bowl", function() {
 		// 	game.frames = [frame10 = new Frame()]
