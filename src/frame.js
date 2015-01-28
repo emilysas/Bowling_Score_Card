@@ -32,3 +32,7 @@ Frame.prototype.pinsStanding = function(pinsKnockedDown) {
 	this.pins -= pinsKnockedDown;
 };
 
+Frame.prototype.resetPins = function() {
+	this.pins = 10;
+}
+
