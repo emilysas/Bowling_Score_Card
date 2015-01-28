@@ -63,9 +63,9 @@ describe("Bowling Score Card", function() {
   	});
 
   	it("knows if a strike has occurred", function() {
-  		this.bowlsHadThisFrame = 0;
-  		this.pins = 0;
-  		expect(frame.isStrikeScored).toEqual(true)
+  		frame.bowlsHadThisFrame = 0;
+  		frame.pins = 0;
+  		expect(frame.isStrikeScored()).toEqual(true)
   	});
 
 //   	describe("Frame 10", function() {

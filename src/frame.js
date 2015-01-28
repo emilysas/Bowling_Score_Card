@@ -1,7 +1,6 @@
 var Frame = function(number) {
 	this.frameNumber = number;
 	this.pins = 10;
-	// this.score = 0;
 	this.bowlsHadThisFrame = 0;
 };
 
@@ -12,16 +11,21 @@ Frame.prototype.isAllowingBowl = function() {
 		return false;
 	}
 }
-// Frame.prototype.isFrameOver = function() {
-// 	if ((this.pins > 0 && (this.frameNumber < 10 || this.bowl === 2)) || this.bowl === 3) {return true};
-// }
 
-// Frame.prototype.strikeScored = function(scorecard) {
-// 	return "Strike!"
-// }
+Frame.prototype.isStrikeScored = function() {
+	if (this.bowlsHadThisFrame === 0 && this.pins === 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 // Frame.prototype.spareScored = function(scorecard) {
 // 	return "Spare!"
+// }
+
+// Frame.prototype.isFrameOver = function() {
+// 	if ((this.pins > 0 && (this.frameNumber < 10 || this.bowl === 2)) || this.bowl === 3) {return true};
 // }
 
 // Frame.prototype.pinsKnockedDown = function(pins) {
