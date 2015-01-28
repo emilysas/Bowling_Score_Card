@@ -13,7 +13,7 @@ Frame.prototype.isAllowingBowl = function() {
 }
 
 Frame.prototype.isStrikeScored = function() {
-	if (this.bowlsHadThisFrame === 0 && this.pins === 0) {
+	if (this.bowlsHadThisFrame === 1 && this.pins === 0) {
 		return true;
 	} else {
 		return false;
