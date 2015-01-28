@@ -2,14 +2,14 @@ var Player = function(name) {
 	this.name = name;
 };
 
-Player.prototype.bowl = function(frame) {
+Player.prototype.bowl = function(frame, scorecard) {
 	knockedDownPins = this.knockDownPins(frame);
 	if (knockedDownPins === 10) {
-		frame.strikeScored();
+		frame.strikeScored(scorecard);
 	} else if (frame.bowl === 2 && frame.pins === 0) {
-		frame.spareScored();
+		frame.spareScored(scorecard);
 	} else {
-		frame.addToScore(knockedDownPins)
+		frame.addToScore(knockedDownPins, scorecard)
 	}
 	return knockedDownPins;	
 };

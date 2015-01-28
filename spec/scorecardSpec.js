@@ -6,8 +6,7 @@ describe("Bowling Score Card", function() {
 
   beforeEach(function() {
   	player = new Player("Emily");
-  	game = new Game(player, frames = [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
-    scorecard = new ScoreCard();
+  	game = new Game(player, scorecard = new ScoreCard(), [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
   });
 
   describe("Game", function() {
@@ -22,7 +21,8 @@ describe("Bowling Score Card", function() {
   	});
 
   	it("ends after frame 10", function() {
-  		game.frame = undefined;
+  		game.frame.frameNumber === 10;
+      game.frame.bowl === 3;
   		expect(game.play()).toEqual("You have bowled all 10 frames, Game Over");
   	});
 
@@ -78,7 +78,7 @@ describe("Bowling Score Card", function() {
     it("will add the score from each frame to the scorecard", function() {
       game.play();
       game.play();
-      expect(scorecard.total).toEqual(game.frame.score)
+      expect(game.scorecard.total).toEqual(game.frame.score)
     });
   })
 

@@ -6,14 +6,14 @@ var Frame = function() {
 };
 
 Frame.prototype.isFrameOver = function() {
-	if (this.bowl >= 2 && this.frameNumber !== 10) {return true};
+	if ((this.bowl === 2 && this.frameNumber !== 10) || this.bowl ===3) {return true};
 }
 
-Frame.prototype.strikeScored = function() {
+Frame.prototype.strikeScored = function(scorecard) {
 	return "Strike!"
 }
 
-Frame.prototype.spareScored = function() {
+Frame.prototype.spareScored = function(scorecard) {
 	return "Spare!"
 }
 
@@ -25,8 +25,9 @@ Frame.prototype.bowlNumber = function() {
 	this.bowl += 1;
 }
 
-Frame.prototype.addToScore = function(score) {
-	this.score += score
+Frame.prototype.addToScore = function(score, scorecard) {
+	this.score += score;
+	scorecard.addBowlScore(score)
 }
 
 Frame.prototype.resetPins = function() {
