@@ -5,9 +5,7 @@ var Frame = function(number) {
 };
 
 Frame.prototype.isAllowingBowl = function() {
-	if (this.bowlsHadThisFrame < 2) {
-		return true;
-	} else if (this.bowlsHadThisFrame === 2 && this.frameNumber === 10 && this.pins === 0) {
+	if (this.bowlsHadThisFrame < 2 || (this.bowlsHadThisFrame === 2 && this.frameNumber === 10 && this.pins === 0)) {
 		return true;
 	} else {
 		return false;
