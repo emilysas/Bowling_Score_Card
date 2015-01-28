@@ -18,7 +18,7 @@ describe("Player", function() {
 	  it("can hit any remaining pins if they have a second throw", function() {
 	  	var pinsStandingAfterFirstBowl = 10 - player.bowl(frame);
 	  	var pinsStandingAfterSecondBowl = pinsStandingAfterFirstBowl - player.bowl(frame);
-	  	expect(pinsStandingAfterSecondBowl).toBeLessThan(pinsStandingAfterFirstBowl);
+	  	expect(pinsStandingAfterSecondBowl).not.toBeGreaterThan(pinsStandingAfterFirstBowl);
 	  });
 
 });

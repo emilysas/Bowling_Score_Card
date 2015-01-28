@@ -1,3 +1,8 @@
+var Game = function(player) {
+	this.player = player;
+	this.playerUsername = player.username;
+}
+
 // var Game = function(player, scorecard, frames = []) {
 // 	this.player = player;
 // 	this.scorecard = scorecard;
