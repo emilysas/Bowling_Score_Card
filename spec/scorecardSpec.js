@@ -1,13 +1,15 @@
 describe("Bowling Score Card", function() {
 
-// 	var game;
+	var frame;
+	 // var game;
 //   var player;
 //   var scorecard;
 
-//   beforeEach(function() {
-//   	player = new Player("Emily");
-//   	game = new Game(player, scorecard = new ScoreCard(), [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
-//   });
+  beforeEach(function() {
+  	frame = new Frame();
+  	// player = new Player("Emily");
+  	// game = new Game(player, scorecard = new ScoreCard(), [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
+  });
 
 //   describe("Game", function() {
 
@@ -41,13 +43,11 @@ describe("Bowling Score Card", function() {
 
 //   });
 
-//   describe("Frame", function() {
+  describe("Frame", function() {
 
-//   	it("will keep track of the score for the current frame", function() {
-//   		game.play();
-//   		game.play();
-//   		expect(game.frame.score).toEqual(10 - Number(game.frame.pins));
-//   	});
+  	it("will know how many pins are standing", function() {
+  		expect(frame.pins).toEqual(10)
+  	});
 
 //   	describe("Frame 10", function() {
 //   		it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
@@ -73,7 +73,7 @@ describe("Bowling Score Card", function() {
 //       })
 //   	});
 
-//   });
+  });
 
 //   describe("ScoreCard", function() {
 //     it("will add the score from each frame to the scorecard", function() {
