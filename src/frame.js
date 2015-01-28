@@ -1,5 +1,5 @@
-var Frame = function() {
-	this.frameNumber = 1;
+var Frame = function(number) {
+	this.frameNumber = number;
 	this.pins = 10;
 	// this.score = 0;
 	this.bowlsHadThisFrame = 0;

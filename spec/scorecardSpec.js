@@ -6,7 +6,7 @@ describe("Bowling Score Card", function() {
 //   var scorecard;
 
   beforeEach(function() {
-  	frame = new Frame();
+  	frame = new Frame(1);
   	// player = new Player("Emily");
   	// game = new Game(player, scorecard = new ScoreCard(), [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
   });
@@ -60,6 +60,12 @@ describe("Bowling Score Card", function() {
 
   	it("knows which frame number it is", function() {
   		expect(frame.frameNumber).toEqual(1);
+  	});
+
+  	it("knows if a strike has occurred", function() {
+  		this.bowlsHadThisFrame = 0;
+  		this.pins = 0;
+  		expect(frame.isStrikeScored).toEqual(true)
   	});
 
 //   	describe("Frame 10", function() {
