@@ -20,9 +20,13 @@ Frame.prototype.isStrikeScored = function() {
 	}
 }
 
-// Frame.prototype.spareScored = function(scorecard) {
-// 	return "Spare!"
-// }
+Frame.prototype.isSpareScored = function() {
+		if (this.bowlsHadThisFrame === 2 && this.pins === 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 // Frame.prototype.isFrameOver = function() {
 // 	if ((this.pins > 0 && (this.frameNumber < 10 || this.bowl === 2)) || this.bowl === 3) {return true};
