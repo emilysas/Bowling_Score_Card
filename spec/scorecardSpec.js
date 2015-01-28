@@ -49,6 +49,15 @@ describe("Bowling Score Card", function() {
   		expect(frame.pins).toEqual(10)
   	});
 
+  	it ("will allow a maximum of 2 bowls (excl. frame10)", function () {
+  		frame.bowlsHadThisFrame = 0;
+  		expect(frame.isAllowingBowl).toEqual(true)
+  		frame.bowlsHadThisFrame = 1;
+  		expect(frame.isAllowingBowl).toEqual(true)
+  		frame.bowlsHadThisFrame = 2; 
+  		expect(frame.isAllowingBowl).toEqual(false)
+  	})
+
 //   	describe("Frame 10", function() {
 //   		it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
 //   			game.frames = [frame10 = new Frame()]
