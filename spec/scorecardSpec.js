@@ -2,9 +2,11 @@ describe("Bowling Score Card", function() {
 
 	var frame;
 	var player; 
+	var frame10;
 
   beforeEach(function() {
   	frame = new Frame(1);
+  	frame10 = new Frame(10);
   	player = new Player("Emily");
   });
 
@@ -57,29 +59,40 @@ describe("Bowling Score Card", function() {
   		expect(frame.isSpareScored()).toEqual(true)
   	});
 
-//   	describe("Frame 10", function() {
-//   		it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
-//   			game.frames = [frame10 = new Frame()]
-//         game.frame.bowl = 2;
-//         game.frame.pins = 0;
-//   			expect(game.play()).not.toEqual("You have bowled all 10 frames, Game Over")
-//   		});
+  });
 
-//   		it("will not allow a 3rd bowl where a player doesn't score a spare or a strike in their second bowl", function() {
-//   			game.frames = [frame10 = new Frame()]
-//   			game.frame.bowl = 2;
-//   			game.frame.pins = 3;
-//         game.frame.frameNumber = 10;
-//   			expect(game.play()).toEqual("You have bowled all 10 frames, Game Over")
-//   		});
+	describe("Last Frame", function() {
 
-//       it("will reset the pins after a strike or spare", function() {
-//         game.frames = [frame10 = new Frame()];
-//         game.frame.pins = 0;
-//         game.frame.resetPins();
-//         expect(game.frame.pins).toEqual(10);
-//       })
-//   	});
+		it("unless a strike or spare is scored, a player only has 2 bowls", function() {
+			frame10.bowlsHadThisFrame = 0;
+  		expect(frame10.isAllowingBowl()).toEqual(true);
+  		frame10.bowlsHadThisFrame = 1;
+  		expect(frame10.isAllowingBowl()).toEqual(true);
+  		frame10.pins = 1;
+  		frame10.bowlsHadThisFrame = 2; 
+  		expect(frame10.isAllowingBowl()).toEqual(false);
+		});
+		// it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
+		// 	game.frames = [frame10 = new Frame()]
+  //     game.frame.bowl = 2;
+  //     game.frame.pins = 0;
+		// 	expect(game.play()).not.toEqual("You have bowled all 10 frames, Game Over")
+		// });
+
+		// it("will not allow a 3rd bowl where a player doesn't score a spare or a strike in their second bowl", function() {
+		// 	game.frames = [frame10 = new Frame()]
+		// 	game.frame.bowl = 2;
+		// 	game.frame.pins = 3;
+  //     game.frame.frameNumber = 10;
+		// 	expect(game.play()).toEqual("You have bowled all 10 frames, Game Over")
+		// });
+
+  //   it("will reset the pins after a strike or spare", function() {
+  //     game.frames = [frame10 = new Frame()];
+  //     game.frame.pins = 0;
+  //     game.frame.resetPins();
+  //     expect(game.frame.pins).toEqual(10);
+  //   })
 
   });
 
