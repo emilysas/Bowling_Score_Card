@@ -2,12 +2,12 @@ describe("Bowling Score Card", function() {
 
 	var frame;
 	 // var game;
-//   var player;
+  var player;
 //   var scorecard;
 
   beforeEach(function() {
   	frame = new Frame(1);
-  	// player = new Player("Emily");
+  	player = new Player("Emily");
   	// game = new Game(player, scorecard = new ScoreCard(), [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
   });
 
@@ -30,8 +30,11 @@ describe("Bowling Score Card", function() {
 
 //   });
 
-//   describe("Player", function() {
+  describe("Player", function() {
 
+  	it("has a name", function() {
+  		expect(player.name).toEqual("Emily")
+  	});
 //     it("can hit between 0 and 10 pins with their first throw", function() {
 //       expect(game.play()).toBeLessThan(11);
 //     });
@@ -41,7 +44,7 @@ describe("Bowling Score Card", function() {
 //     	expect(game.play()).toBeLessThan(7);
 //     });
 
-//   });
+  });
 
   describe("Frame", function() {
 
