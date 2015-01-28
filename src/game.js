@@ -1,26 +1,25 @@
-var Game = function(player, frames) {
+var Game = function(player, frames = []) {
 	this.player = player;
 	this.playerUsername = player.username;
 	this.frames = frames
+	this.currentFrame = frames[0]
 }
 
-// var Game = function(player, scorecard, frames = []) {
-// 	this.player = player;
-// 	this.scorecard = scorecard;
-// 	this.frames = frames;
-// 	this.frame = frames[0];
-// }
+Game.prototype.play = function() {
+	var frame = this.frame();
+	return player.bowl(frame);
+}
 
-// Game.prototype.play = function() {
-// 	var frame
-// 	if(this.frame.isFrameOver()) {
-// 		this.frames.shift;
-// 		return this.frame;
-// 	} 
-// 	frame = this.frame;
-// 	if (frame.frameNumber === 10 && frame.isFrameOver()) {
-// 		return "You have bowled all 10 frames, Game Over"
-// 	} else {
-// 		return this.player.bowl(frame, this.scorecard);
-// 	};
-// }
+Game.prototype.frame = function() {
+	if(this.currentFrame.isBowlAllowed()) {
+		return this.currentFrame;
+	} else {
+		return this.nextFrame();
+	}
+};
+
+Game.prototype.nextFrame = function() {
+	this.frames.shift();
+	this.currentFrame = this.frames[0];
+	return this.currentFrame;
+}

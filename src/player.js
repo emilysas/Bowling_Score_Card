@@ -8,7 +8,8 @@ Player.prototype.bowl = function(frame) {
 };
 
 Player.prototype.knockDownPins = function(frame) {
-	pinsKnockedDown = Math.floor(Math.random()*11);
+	var pinsKnockedDown = Math.floor(Math.random()*(frame.pins+1));
 	frame.pinsStanding(pinsKnockedDown);
+	frame.bowlsHadThisFrame += 1;
 	return pinsKnockedDown;
 };

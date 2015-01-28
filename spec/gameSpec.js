@@ -17,9 +17,10 @@ describe("Game", function() {
 	})
 
 	it("moves from frame 1 through to 10", function() {
-		expect(game.frames[0].frameNumber).toEqual(1);
-		game.play();
-		expect(game.frames[0].frameNumber).toEqual(2);
+		expect(game.currentFrame.frameNumber).toEqual(1);
+		game.currentFrame.bowlsHadThisFrame = 2;
+		game.frame();
+		expect(game.currentFrame.frameNumber).toEqual(2);
 	});
 
 //   	it("ends after frame 10", function() {

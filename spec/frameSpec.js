@@ -16,11 +16,11 @@ describe("Frame", function() {
 
 	  	it ("will allow a maximum of 2 bowls (excl. frame10)", function () {
 	  		frame.bowlsHadThisFrame = 0;
-	  		expect(frame.isAllowingBowl()).toEqual(true);
+	  		expect(frame.isBowlAllowed()).toEqual(true);
 	  		frame.bowlsHadThisFrame = 1;
-	  		expect(frame.isAllowingBowl()).toEqual(true);
+	  		expect(frame.isBowlAllowed()).toEqual(true);
 	  		frame.bowlsHadThisFrame = 2; 
-	  		expect(frame.isAllowingBowl()).toEqual(false);
+	  		expect(frame.isBowlAllowed()).toEqual(false);
 	  	})
 
 	  	it("knows which frame number it is", function() {
@@ -39,24 +39,30 @@ describe("Frame", function() {
 	  		expect(frame.isSpareScored()).toEqual(true)
 	  	});
 
+	  	it("will not allow another bowl after a strike", function() {
+	  		frame.bowlsHadThisFrame = 1;
+	  		frame.pins = 0;
+	  		expect(frame.isBowlAllowed()).toEqual(false);
+	  	});
+
 	  });
 
 		describe("Last Frame", function() {
 
 			it("unless a strike or spare is scored, a player only has 2 bowls", function() {
 				frame10.bowlsHadThisFrame = 0;
-	  		expect(frame10.isAllowingBowl()).toEqual(true);
+	  		expect(frame10.isBowlAllowed()).toEqual(true);
 	  		frame10.bowlsHadThisFrame = 1;
-	  		expect(frame10.isAllowingBowl()).toEqual(true);
+	  		expect(frame10.isBowlAllowed()).toEqual(true);
 	  		frame10.pins = 1;
 	  		frame10.bowlsHadThisFrame = 2; 
-	  		expect(frame10.isAllowingBowl()).toEqual(false);
+	  		expect(frame10.isBowlAllowed()).toEqual(false);
 			});
 
 			it("will allow a 3rd bowl where a player scores a spare or strike in their second bowl", function() {
 				frame10.pins = 0;
 				frame10.bowlsHadThisFrame = 2; 
-	  		expect(frame10.isAllowingBowl()).toEqual(true);
+	  		expect(frame10.isBowlAllowed()).toEqual(true);
 			});
 
 	    it("will reset the pins after a strike or spare", function() {
