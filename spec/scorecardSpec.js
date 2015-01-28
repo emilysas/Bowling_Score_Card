@@ -35,9 +35,11 @@ describe("Bowling Score Card", function() {
   	it("has a name", function() {
   		expect(player.name).toEqual("Emily")
   	});
-//     it("can hit between 0 and 10 pins with their first throw", function() {
-//       expect(game.play()).toBeLessThan(11);
-//     });
+
+    it("can hit between 0 and 10 pins with their first throw", function() {
+      player.bowl();
+      expect(frame.pins).toBeLessThan(11);
+    });
 
 //     it("can hit any remaining pins if they have a second throw", function() {
 //     	game.frame.pins = 6;
