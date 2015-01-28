@@ -2,6 +2,13 @@ var Player = function(name) {
 	this.name = name;
 };
 
+Player.prototype.bowl = function() {
+	this.knockDownPins();
+};
+
+Player.prototype.knockDownPins = function() {
+	return Math.floor(Math.random()*11);
+};
 // Player.prototype.bowl = function(frame, scorecard) {
 // 	var score = this.knockDownPins(frame);
 // 	if (score === 10) {
