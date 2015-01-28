@@ -1,50 +1,28 @@
 describe("Bowling Score Card", function() {
 
 	var frame;
-	 // var game;
-  var player;
-//   var scorecard;
+	var player; 
 
   beforeEach(function() {
   	frame = new Frame(1);
   	player = new Player("Emily");
-  	// game = new Game(player, scorecard = new ScoreCard(), [frame1 = new Frame(), frame2 = new Frame(), frame3 = new Frame(), frame4 = new Frame(), frame5 = new Frame(), frame6 = new Frame(), frame7 = new Frame(), frame8 = new Frame(), frame9 = new Frame(), frame10 = new Frame()]);
   });
-
-//   describe("Game", function() {
-
-//   	it("has 10 frames", function() {
-//   		expect(game.frames.length).toEqual(10);
-//   	});
-
-//   	it("moves from frame 1 through to 10", function() {
-//   		game.play();
-//   		expect(game.frames[8]).toEqual(frame9);
-//   	});
-
-//   	it("ends after frame 10", function() {
-//   		game.frame.frameNumber = 10;
-//       game.frame.bowl = 3;
-//   		expect(game.play()).toEqual("You have bowled all 10 frames, Game Over");
-//   	});
-
-//   });
 
   describe("Player", function() {
 
   	it("has a name", function() {
-  		expect(player.name).toEqual("Emily")
+  		expect(player.username).toEqual("Emily")
   	});
 
     it("can hit between 0 and 10 pins with their first throw", function() {
-      player.bowl();
-      expect(frame.pins).toBeLessThan(11);
-    });
+      expect(player.bowl(frame)).toBeLessThan(11);
+    })
 
-//     it("can hit any remaining pins if they have a second throw", function() {
-//     	game.frame.pins = 6;
-//     	expect(game.play()).toBeLessThan(7);
-//     });
+    it("can hit any remaining pins if they have a second throw", function() {
+    	var pinsStandingAfterFirstBowl = 10 - player.bowl(frame);
+    	var pinsStandingAfterSecondBowl = pinsStandingAfterFirstBowl - player.bowl(frame);
+    	expect(pinsStandingAfterSecondBowl).toBeLessThan(pinsStandingAfterFirstBowl);
+    });
 
   });
 
@@ -113,5 +91,23 @@ describe("Bowling Score Card", function() {
 //     });
 //   })
 
+//   describe("Game", function() {
+
+//   	it("has 10 frames", function() {
+//   		expect(game.frames.length).toEqual(10);
+//   	});
+
+//   	it("moves from frame 1 through to 10", function() {
+//   		game.play();
+//   		expect(game.frames[8]).toEqual(frame9);
+//   	});
+
+//   	it("ends after frame 10", function() {
+//   		game.frame.frameNumber = 10;
+//       game.frame.bowl = 3;
+//   		expect(game.play()).toEqual("You have bowled all 10 frames, Game Over");
+//   	});
+
+//   });
 
 });

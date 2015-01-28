@@ -28,6 +28,10 @@ Frame.prototype.isSpareScored = function() {
 	}
 }
 
+Frame.prototype.pinsStanding = function(pinsKnockedDown) {
+	this.pins -= pinsKnockedDown;
+};
+
 // Frame.prototype.isFrameOver = function() {
 // 	if ((this.pins > 0 && (this.frameNumber < 10 || this.bowl === 2)) || this.bowl === 3) {return true};
 // }
