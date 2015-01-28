@@ -1,6 +1,6 @@
-// var Player = function(name) {
-// 	this.name = name;
-// };
+var Player = function(name) {
+	this.name = name;
+};
 
 // Player.prototype.bowl = function(frame, scorecard) {
 // 	var score = this.knockDownPins(frame);
