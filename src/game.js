@@ -32,6 +32,7 @@ Game.prototype.calculateScore = function(score) {
 	var lastFrame;
 	frameNum > 1 ? lastFrame = this.scorecard[frameNum - 2] : lastFrame = false;
 	console.log(lastFrame)
+
 	if (!this.scorecard[frameNum -1]) {
 		this.calculateFirstScore(score);
 		if (lastFrame && this.spareLastFrame(lastFrame)){
@@ -64,6 +65,7 @@ Game.prototype.calculateSecondScore = function(score) {
 		this.addScore(cell, "-");
 	} else {
 		this.addScore(cell, score)	
+		this.addScore(cell, this.getFrameTotal(score))
 	};
 };
 
@@ -86,7 +88,7 @@ Game.prototype.strikeLastFrame = function(lastFrame) {
 };
 
 Game.prototype.spareLastFrame = function(lastFrame) {
-	lastFrame[2] === 10 && lastFrame[0] < 10;
+	lastFrame[2] === '-' && lastFrame[0] < 10;
 };
 
 Game.prototype.getFrameTotal = function (score) {

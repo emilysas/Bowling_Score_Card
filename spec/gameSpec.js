@@ -38,9 +38,11 @@ describe("Game", function() {
   	});
 
   	it("will calculate the total score of each frame", function() {
-  		game.play();
-  		game.play();
-  		expect(game.scorecard[0][2]).toEqual(game.scorecard[0][0] + game.scorecard[0][1])
+  		game.calculateScore(3);
+  		game.calculateScore(2);
+  		expect(game.scorecard[0][0]).toEqual(3);
+  		expect(game.scorecard[0][1]).toEqual(2);
+  		expect(game.scorecard[0][2]).toEqual(5);
   	});
 
   	it("when a strike occurs, it will not calculate the score until after the next frame", function() {
