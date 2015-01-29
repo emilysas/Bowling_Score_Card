@@ -4,6 +4,7 @@ var Game = function(player, frames = []) {
 	this.frames = frames;
 	this.currentFrame = frames[0];
 	this.scorecard = [];
+	this.totalScore = 0;
 };
 
 Game.prototype.play = function() {
@@ -52,6 +53,7 @@ Game.prototype.calculateFirstScore = function(score) {
 		this.addScore(this.scorecard, [10, "-", "-"]);
 	} else {
 		this.addScore(this.scorecard, [score]);
+		this.runningTotal(score)
 	};
 };
 
@@ -62,9 +64,11 @@ Game.prototype.calculateSecondScore = function(score) {
 	if (frame.isSpareScored()) {
 		this.addScore(cell, score);
 		this.addScore(cell, "-");
+		this.runningTotal(score)
 	} else {
 		this.addScore(cell, score)	
 		this.addScore(cell, this.getFrameTotal(score))
+		this.runningTotal(score)
 	};
 };
 
@@ -75,10 +79,13 @@ Game.prototype.calculatePreviousScore = function(bonus, score) {
 	var totalThisFrame = thisFrame[2];
 	if (bonus === "strike" && thisFrame[0] === 10){
 		lastFrame[2] = 20;
+		this.runningTotal(10);
 	} else if (bonus === "strike"){
 		lastFrame[2] = (Number(totalThisFrame)+10);
+		this.runningTotal(Number(totalThisFrame));
 	} else if (bonus === "spare"){
 		lastFrame[2] = (Number(score)+10);
+		this.runningTotal(Number(score));
 	}
 };
 
@@ -99,3 +106,8 @@ Game.prototype.getFrameTotal = function (score) {
 	var total = this.scorecard[frame - 1][0] + score;
 	return total;
 };
+
+Game.prototype.runningTotal = function(score) {
+	this.totalScore += Number(score);
+};
+
