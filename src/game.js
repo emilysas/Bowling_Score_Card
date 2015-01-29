@@ -1,4 +1,6 @@
-var Game = function(player, frames = []) {
+"use strict";
+
+var Game = function(player, frames) {
 	this.player = player;
 	this.playerUsername = player.username;
 	this.frames = frames;
@@ -9,7 +11,7 @@ var Game = function(player, frames = []) {
 
 Game.prototype.play = function() {
 	var frame = this.frame();
-	score = player.bowl(frame);
+	var score = player.bowl(frame);
 	this.calculateScore(score);
 	return score;
 };

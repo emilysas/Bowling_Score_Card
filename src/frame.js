@@ -1,3 +1,5 @@
+"use strict";
+
 var Frame = function(number) {
 	this.frameNumber = number;
 	this.pins = 10;
