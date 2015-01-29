@@ -36,13 +36,11 @@ Game.prototype.calculateScore = function(score) {
 	if (!this.scorecard[frameNum -1]) {
 		this.calculateFirstScore(score);
 		if (lastFrame && this.isSpareLastFrame(lastFrame)){
-			console.log("spare");
 			this.calculatePreviousScore("spare", score);
 		}
 	} else {
 		this.calculateSecondScore(score);
 		if (lastFrame && this.isStrikeLastFrame(lastFrame)){
-			console.log("strike");
 			this.calculatePreviousScore("strike", score);
 		};
 	};	
@@ -70,6 +68,7 @@ Game.prototype.calculateSecondScore = function(score) {
 };
 
 Game.prototype.calculatePreviousScore = function(bonus, score) {
+	var frameNum = this.currentFrame.frameNumber;
 	var lastFrame = this.scorecard[frameNum - 2];
 	var totalThisFrame = this.scorecard[frameNum -1][2];
 	if (bonus === "strike"){
@@ -84,11 +83,11 @@ Game.prototype.addScore = function(scoreboardCell, score) {
 };
 
 Game.prototype.isStrikeLastFrame = function(lastFrame) {
-	lastFrame[0] === 10;
+	return lastFrame[0] === 10;
 };
 
 Game.prototype.isSpareLastFrame = function(lastFrame) {
-	lastFrame[2] === '-' && lastFrame[0] < 10;
+	return lastFrame[2] === '-' && lastFrame[0] < 10;
 };
 
 Game.prototype.getFrameTotal = function (score) {
