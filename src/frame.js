@@ -30,19 +30,11 @@ Frame.prototype.isLastFrame = function() {
 }
 
 Frame.prototype.isStrikeScored = function() {
-	if (this.bowlsHadThisFrame === 1 && this.pins === 0) { 
-		return true; 
-	} else { 
-		return false; 
-	};
+	return (this.bowlsHadThisFrame === 1 && this.pins === 0)
 };
 
 Frame.prototype.isSpareScored = function() {
-		if (this.bowlsHadThisFrame === 2 && this.pins === 0) { 
-			return true; 
-		} else { 
-			return false; 
-		}
+	return (this.bowlsHadThisFrame === 2 && this.pins === 0) 
 };
 
 Frame.prototype.pinsStanding = function(pinsKnockedDown) {

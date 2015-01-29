@@ -68,6 +68,14 @@ describe("Game", function() {
   		expect(game.scorecard[0][2]).toEqual(20);
   	});
 
+    it("can calculate a running total", function() {
+      game.play()
+      game.play()
+      game.play()
+      game.play()
+      expect(game.runningTotal).toEqual(game.scorecard[0][2]+game.scorecard[1][2])
+    })
+
 	});
 
  });
