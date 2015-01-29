@@ -35,13 +35,13 @@ Game.prototype.calculateScore = function(score) {
 
 	if (!this.scorecard[frameNum -1]) {
 		this.calculateFirstScore(score);
-		if (lastFrame && this.spareLastFrame(lastFrame)){
+		if (lastFrame && this.isSpareLastFrame(lastFrame)){
 			console.log("spare");
 			this.calculatePreviousScore("spare", score);
 		}
 	} else {
 		this.calculateSecondScore(score);
-		if (lastFrame && this.strikeLastFrame(lastFrame)){
+		if (lastFrame && this.isStrikeLastFrame(lastFrame)){
 			console.log("strike");
 			this.calculatePreviousScore("strike", score);
 		};
@@ -70,12 +70,12 @@ Game.prototype.calculateSecondScore = function(score) {
 };
 
 Game.prototype.calculatePreviousScore = function(bonus, score) {
-	var lastFrame = this.scorecard[frameNum - 2][2];
+	var lastFrame = this.scorecard[frameNum - 2];
 	var totalThisFrame = this.scorecard[frameNum -1][2];
 	if (bonus === "strike"){
-		this.addScore(lastFrame, totalThisFrame+10);
+		lastFrame[2] = Number(totalThisFrame)+10;
 	} else if (bonus === "spare"){
-		this.addScore(lastFrame, score+10);
+		lastFrame[2] = Number(score)+10;
 	}
 };
 
@@ -83,11 +83,11 @@ Game.prototype.addScore = function(scoreboardCell, score) {
 	scoreboardCell.push(score);
 };
 
-Game.prototype.strikeLastFrame = function(lastFrame) {
+Game.prototype.isStrikeLastFrame = function(lastFrame) {
 	lastFrame[0] === 10;
 };
 
-Game.prototype.spareLastFrame = function(lastFrame) {
+Game.prototype.isSpareLastFrame = function(lastFrame) {
 	lastFrame[2] === '-' && lastFrame[0] < 10;
 };
 
