@@ -56,6 +56,18 @@ describe("Game", function() {
   		expect(game.scorecard[0][2]).toEqual(18);
   	});
 
+  	it("when a strike is followed by another strike, it still will calculate the score", function() {
+  		game.currentFrame.pins = 0;
+  		game.currentFrame.bowlsHadThisFrame = 1;
+  		game.calculateScore(10);
+  		expect(game.scorecard[0][2]).toEqual("-");
+  		game.currentFrame = game.frames[1];
+  		game.currentFrame.pins = 0;
+  		game.currentFrame.bowlsHadThisFrame = 1;
+  		game.calculateScore(10);
+  		expect(game.scorecard[0][2]).toEqual(20);
+  	});
+
 	});
 
  });
