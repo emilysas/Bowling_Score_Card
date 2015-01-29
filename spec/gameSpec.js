@@ -44,10 +44,14 @@ describe("Game", function() {
   	});
 
   	it("when a strike occurs, it will not calculate the score until after the next frame", function() {
-  		game.currentFrame.isStrikeScored = true;
+  		game.currentFrame.pins = 0;
+  		game.currentFrame.bowlsHadThisFrame = 1;
+  		game.calculateScore(10);
   		expect(game.scorecard[0][2]).toEqual("-");
-  		game.play();
-  		expect(game.scorecard[0][2]).toEqual(game.scorecard[1][2] + 10);
+  		game.currentFrame = game.frames[1];
+  		game.calculateScore(5);
+  		game.calculateScore(3)
+  		expect(game.scorecard[0][2]).toEqual(Number(18));
   	});
 
 	});
