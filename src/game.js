@@ -2,7 +2,7 @@
 
 var Game = function (player, frames) {
   this.player = player;
-  this.playerUsername = player.username;
+  this.playerUsername = player.getName();
   this.frames = frames;
   this.currentFrame = frames[0];
   this.scorecard = [];

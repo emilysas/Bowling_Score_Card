@@ -1,17 +1,23 @@
 "use strict";
 
 var Player = function (name) {
-  this.username = name;
-};
+  var username = name;
 
-Player.prototype.bowl = function(frame) {
-  var knockedDownPins = this.knockDownPins(frame);
-  return knockedDownPins;
-};
+  this.getName = function () {
+    return username;
+  };
 
-Player.prototype.knockDownPins = function(frame) {
-  var pinsKnockedDown = Math.floor(Math.random()*(frame.pins+1));
-  frame.pinsStanding(pinsKnockedDown);
-  frame.bowlsHadThisFrame += 1;
-  return pinsKnockedDown;
+  this.bowl = function(frame) {
+    var hitPins;
+    var knockDownPins;
+
+      knockDownPins = function () {
+        hitPins = Math.floor(Math.random()*(frame.pins+1));
+        frame.pinsStanding(hitPins);
+        frame.bowlsHadThisFrame += 1;
+        return hitPins;
+      }
+      
+    return knockDownPins();
+  };
 };

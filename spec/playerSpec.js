@@ -9,7 +9,7 @@ describe("Player", function() {
   });
 
 		it("has a name", function() {
-			expect(player.username).toEqual("Emily")
+			expect(player.getName()).toEqual("Emily")
 		});
 
 	  it("can hit between 0 and 10 pins with their first throw", function() {
@@ -21,11 +21,5 @@ describe("Player", function() {
 	  	var pinsStandingAfterSecondBowl = pinsStandingAfterFirstBowl - player.bowl(frame);
 	  	expect(pinsStandingAfterSecondBowl).not.toBeGreaterThan(pinsStandingAfterFirstBowl);
 	  });
-
-	  it("a player cannot hit more than the remaining pins in a second through", function() {
-	  	var pinsStandingAfterFirstBowl = 10 - player.bowl(frame);
-	  	var pinsStandingAfterSecondBowl = pinsStandingAfterFirstBowl - player.bowl(frame);
-	  	expect(pinsStandingAfterSecondBowl).toEqual(frame.pins);
-	  })
 
 });
