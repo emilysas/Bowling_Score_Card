@@ -9,7 +9,7 @@ var Game = function(player, frames = []) {
 Game.prototype.play = function() {
 	var frame = this.frame();
 	score = player.bowl(frame);
-	this.addScore(score)
+	this.addScore(score);
 	return score;
 }
 

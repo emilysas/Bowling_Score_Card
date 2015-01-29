@@ -42,9 +42,13 @@ describe("Game", function() {
   		game.play();
   		expect(game.scorecard[0][2]).toEqual(game.scorecard[0][0] + game.scorecard[0][1])
   	});
-  	// it("when a strike occurs, it will not calculate the score until after the next frame", function() {
 
-  	// });
+  	it("when a strike occurs, it will not calculate the score until after the next frame", function() {
+  		game.currentFrame.isStrikeScored = true;
+  		expect(game.scorecard[0][2]).toEqual("-");
+  		game.play();
+  		expect(game.scorecard[0][2]).toEqual(game.scorecard[1][2] + 10);
+  	});
 
 	});
 
