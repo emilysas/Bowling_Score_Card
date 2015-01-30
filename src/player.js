@@ -6,18 +6,17 @@ var Player = function (name) {
   this.getName = function () {
     return username;
   };
+}
 
-  this.bowl = function(frame) {
-    var hitPins;
-    var knockDownPins;
+Player.prototype.bowl = function(frame){
+  var hitPins;
+  var knockDownPins;
 
-      knockDownPins = function () {
-        hitPins = Math.floor(Math.random()*(frame.pins+1));
-        frame.pinsStanding(hitPins);
-        frame.bowlsHadThisFrame += 1;
-        return hitPins;
-      }
-      
-    return knockDownPins();
-  };
+  knockDownPins = function () {
+    hitPins = Math.floor(Math.random()*(frame.pins+1));
+    frame.pinsStanding(hitPins);
+    frame.bowlsHadThisFrame += 1;
+    return hitPins;
+  }
+  return knockDownPins();
 };
