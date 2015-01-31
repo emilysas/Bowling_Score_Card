@@ -19,11 +19,7 @@ Game.prototype = {
   },
 
   frame: function () {
-    if(this.currentFrame.isBowlAllowed()) {
-      return this.currentFrame;
-    } else {
-      return this.nextFrame();
-    }
+    return this.currentFrame.isBowlAllowed() ? this.currentFrame : this.nextFrame();
   },
 
   nextFrame: function () {
@@ -52,12 +48,8 @@ Game.prototype = {
   },
 
   calculateFirstScore: function (score) {
-    if (this.currentFrame.isStrikeScored()) {
-      this.addScore(this.scorecard, [10, "-", "-"]);
-    } else {
-      this.addScore(this.scorecard, [score]);
-      this.runningTotal(score)
-    };
+    this.currentFrame.isStrikeScored() ? this.addScore(this.scorecard, [10, "-", "-"])
+                                       : this.addScore(this.scorecard, [score]), this.runningTotal(score);
   },
 
   calculateSecondScore: function (score) {
