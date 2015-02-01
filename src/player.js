@@ -9,8 +9,8 @@ var Player = function (name) {
 }
 
 Player.prototype.bowl = function(frame){
-  var hitPins;
-  var knockDownPins;
+  var hitPins,
+      knockDownPins;
 
   knockDownPins = function () {
     hitPins = Math.floor(Math.random()*(frame.pins+1));
