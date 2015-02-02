@@ -7,12 +7,13 @@ describe("Scorecard", function() {
 		player = new Player("Emily");
 		scorecard = new Scorecard();
 		game = new Game(player, scorecard, frames);
+	
   });
 
-		// it("will know the score from the first bowl in each frame", function() {
-  // 	game.play();
-  // 	expect(scorecard.card[0][0]).toEqual(10 - game.currentFrame.pins)
-  // 	});
+		it("will know the score from the first bowl in each frame", function() {
+	  	game.play();
+	  	expect(scorecard.card[0][0]).toEqual(10 - game.currentFrame.pins)
+  	});
 
   // 	it("will know the score from the second bowl in each frame", function() {
   // 		game.play();

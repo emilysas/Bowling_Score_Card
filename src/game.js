@@ -6,6 +6,7 @@ var Game = function (player, scorecard, frames) {
   this.frames = frames;
   this.currentFrame = frames[0];
   this.scorecard = scorecard;
+  this.scorecard.game = this;
 };
 
 Game.prototype = {
