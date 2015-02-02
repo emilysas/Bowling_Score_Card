@@ -14,51 +14,51 @@ describe("Scorecard", function() {
   // 	expect(scorecard.card[0][0]).toEqual(10 - game.currentFrame.pins)
   // 	});
 
-  	// it("will know the score from the second bowl in each frame", function() {
-  	// 	game.play();
-  	// 	game.play();
-  	// 	game.play();
-  	// 	expect(game.scorecard.length).toBeGreaterThan(1)
-  	// });
+  // 	it("will know the score from the second bowl in each frame", function() {
+  // 		game.play();
+  // 		game.play();
+  // 		game.play();
+  // 		expect(game.scorecard.length).toBeGreaterThan(1)
+  // 	});
 
-  	// it("will calculate the total score of each frame", function() {
-  	// 	game.calculateScore(3);
-  	// 	game.calculateScore(2);
-  	// 	expect(game.scorecard[0][0]).toEqual(3);
-  	// 	expect(game.scorecard[0][1]).toEqual(2);
-  	// 	expect(game.scorecard[0][2]).toEqual(5);
-  	// });
+  // 	it("will calculate the total score of each frame", function() {
+  // 		game.calculateScore(3);
+  // 		game.calculateScore(2);
+  // 		expect(game.scorecard[0][0]).toEqual(3);
+  // 		expect(game.scorecard[0][1]).toEqual(2);
+  // 		expect(game.scorecard[0][2]).toEqual(5);
+  // 	});
 
-  	// it("when a strike occurs, it will not calculate the score until after the next frame", function() {
-  	// 	game.currentFrame.pins = 0;
-  	// 	game.currentFrame.bowlsHadThisFrame = 1;
-  	// 	game.calculateScore(10);
-  	// 	expect(game.scorecard[0][2]).toEqual("-");
-  	// 	game.currentFrame = game.frames[1];
-  	// 	game.calculateScore(5);
-  	// 	game.calculateScore(3)
-  	// 	expect(game.scorecard[0][2]).toEqual(18);
-  	// });
+  // 	it("when a strike occurs, it will not calculate the score until after the next frame", function() {
+  // 		game.currentFrame.pins = 0;
+  // 		game.currentFrame.bowlsHadThisFrame = 1;
+  // 		game.calculateScore(10);
+  // 		expect(game.scorecard[0][2]).toEqual("-");
+  // 		game.currentFrame = game.frames[1];
+  // 		game.calculateScore(5);
+  // 		game.calculateScore(3)
+  // 		expect(game.scorecard[0][2]).toEqual(18);
+  // 	});
 
-  	// it("when a strike is followed by another strike, it still will calculate the score", function() {
-  	// 	game.currentFrame.pins = 0;
-  	// 	game.currentFrame.bowlsHadThisFrame = 1;
-  	// 	game.calculateScore(10);
-  	// 	expect(game.scorecard[0][2]).toEqual("-");
-  	// 	game.currentFrame = game.frames[1];
-  	// 	game.currentFrame.pins = 0;
-  	// 	game.currentFrame.bowlsHadThisFrame = 1;
-  	// 	game.calculateScore(10);
-  	// 	expect(game.scorecard[0][2]).toEqual(20);
-  	// });
+  // 	it("when a strike is followed by another strike, it still will calculate the score", function() {
+  // 		game.currentFrame.pins = 0;
+  // 		game.currentFrame.bowlsHadThisFrame = 1;
+  // 		game.calculateScore(10);
+  // 		expect(game.scorecard[0][2]).toEqual("-");
+  // 		game.currentFrame = game.frames[1];
+  // 		game.currentFrame.pins = 0;
+  // 		game.currentFrame.bowlsHadThisFrame = 1;
+  // 		game.calculateScore(10);
+  // 		expect(game.scorecard[0][2]).toEqual(20);
+  // 	});
 
-   //  it("can calculate a running total", function() {
-   //    game.calculateScore(4);
-   //    game.calculateScore(3);
-   //    game.currentFrame = game.frames[1];
-   //    game.calculateScore(5);
-   //    game.calculateScore(2);
-   //    expect(game.totalScore).toEqual(14)
-   //  })
+  //   it("can calculate a running total", function() {
+  //     game.calculateScore(4);
+  //     game.calculateScore(3);
+  //     game.currentFrame = game.frames[1];
+  //     game.calculateScore(5);
+  //     game.calculateScore(2);
+  //     expect(game.totalScore).toEqual(14)
+  //   })
 
 	});

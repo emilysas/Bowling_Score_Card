@@ -3,94 +3,76 @@
 var Scorecard = function(){
 	this.card = [];
   this.totalScore = 0;
+  // this.game = null;
+  // this.frame = game.currentFrame || null;
+  // this.frameNum = frame.frameNumber || null;
 }
 
 Scorecard.prototype = {
 
-    // var that = this;
+  // calculateFirstScore: function (score) {
+  //   this.frame.isStrikeScored() ? score = [10, "-", "-"].join()) : this.runningTotal(score);
+  //   this.addScore(this.card, [score])
+  // },
 
-  //   var calculateFirstScore = function (score) {
-  //     this.currentFrame.isStrikeScored() ? this.addScore(this.scorecard, [10, "-", "-"])
-  //                                        : this.addScore(this.scorecard, [score]), this.runningTotal(score);
-  //   };
+  // calculateSecondScore: function (score) {
+  //   var cell = this.getCell(1), value;
+  //   this.isSpareScored() ? value = '-' : value = this.getFrameTotal(cell, score);
+  //   this.addScore(cell, score);
+  //   this.addScore(cell, value);
+  //   this.runningTotal(score);
+  // },
 
-  //   var calculateSecondScore = function (score) {
-  //     var frame = this.currentFrame,
-  //         frameNum = frame.frameNumber,
-  //         cell = this.scorecard[frameNum - 1]
-  //     if (frame.isSpareScored()) {
-  //       this.addScore(cell, score);
-  //       this.addScore(cell, "-");
-  //       this.runningTotal(score)
-  //     } else {
-  //       this.addScore(cell, score)  
-  //       this.addScore(cell, this.getFrameTotal(score))
-  //       this.runningTotal(score)
-  //     }
-  //   };
+  // getCell: function (index) {
+  //   return this.card[this.frameNum - index]
+  // },
 
-  //   var calculatePreviousScore = function (bonus, score) {
-  //     var frameNum = this.currentFrame.frameNumber,
-  //         lastFrame = this.scorecard[frameNum - 2],
-  //         thisFrame = this.scorecard[frameNum - 1],
-  //         totalThisFrame = thisFrame[2];
-  //     if (bonus === "strike" && thisFrame[0] === 10){
-  //       lastFrame[2] = 20;
-  //       this.runningTotal(10);
-  //     } else if (bonus === "strike"){
-  //       lastFrame[2] = (Number(totalThisFrame)+10);
-  //       this.runningTotal(Number(totalThisFrame));
-  //     } else if (bonus === "spare"){
-  //       lastFrame[2] = (Number(score)+10);
-  //       this.runningTotal(Number(score));
-  //     }
-  //   };
+  // calculatePreviousScore: function (bonus, score) {,
+  //   lastFrame = this.getCell(2),
+  //   thisFrame = this.getCell(1),
+  //   totalThisFrame = thisFrame[2],
+  //   totalPlusBonus = totalThisFrame+10;
 
-  //   var addScore = function (scoreboardCell, score) {
-  //     scoreboardCell.push(score);
-  //   };
+  //   if (bonus === "strike" && thisFrame[0] === 10){
+  //     lastFrame[2] = totalPlusBonus;
+  //     this.runningTotal(10);
+  //   } else if (bonus === "strike"){
+  //     lastFrame[2] = (totalPlusBonus);
+  //     this.runningTotal(totalThisFrame));
+  //   } else if (bonus === "spare"){
+  //     lastFrame[2] = (score+10);
+  //     this.runningTotal(score);
+  //   }
+  // },
 
-  //   var runningTotal = function (score) {
-  //     this.totalScore += Number(score);
-  //   };   
+  // addScore: function (scoreboardCell, score) {
+  //   scoreboardCell.push(score);
+  // },
 
-  //   var isStrikeLastFrame = function (lastFrame) {
-  //     return lastFrame[0] === 10;
-  //   };
+  // runningTotal: function (score) {
+  //   this.totalScore += Number(score);
+  // },   
 
-  //   var isSpareLastFrame = function (lastFrame) {
-  //     return lastFrame[2] === '-' && lastFrame[0] < 10;
-  //   };
+  // getFrameTotal: function (cell, score) {
+  //   return cell[0] + score;
+  // },
 
-  //   var getFrameTotal = function (score) {
-  //     var frame = this.currentFrame.frameNumber,
-  //         total = this.scorecard[frame - 1][0] + score;
-  //     return total;
-  //   };
+  // isStrikeLastFrame: function (lastFrame) {
+  //   return lastFrame[0] === 10;
+  // },
 
-  //   return {
+  // isSpareLastFrame: function (lastFrame) {
+  //   return lastFrame[2] === '-' && lastFrame[0] < 10;
+  // },
 
-  //   calculateScore: function (score) {
-  //     var frameNum = this.currentFrame.frameNumber,
-  //         lastFrame = this.scorecard[frameNum - 2] ? this.scorecard[frameNum - 2] : false
-
-  //       if (!this.scorecard[frameNum - 1]) {
-  //         this.calculateFirstScore(score);
-  //         if (lastFrame && this.isSpareLastFrame(lastFrame)){
-  //           this.calculatePreviousScore("spare", score);
-  //         } else if (lastFrame && this.isStrikeLastFrame(lastFrame) && this.currentFrame.isStrikeScored()) {
-  //           this.calculatePreviousScore("strike", score);
-  //         }
-  //       } else {
-  //         this.calculateSecondScore(score);
-  //         if (lastFrame && this.isStrikeLastFrame(lastFrame)){
-  //           this.calculatePreviousScore("strike", score);
-  //         }
-  //       }	
-  //     }
-
-  //   };
-
-  // })()
+  calculateScore: function (game, score) {
+    this.game = this.game || game;
+    emptyCell = !getCell(1);
+    var lastFrame = this.getCell(2) ? this.getCell(2) : false;
+    emptyCell ? this.calculateFirstScore(score) : this.calculateSecondScore(score);
+    bonus = this.isSpareLastFrame() || this.isStrikeLastFrame();
+    whichBonus = this.isSpareLastFrame ? "spare" : "strike";
+    if(lastFrame && bonus){this.calculatePreviousScore(whichBonus, score)};
+  };
 
 };

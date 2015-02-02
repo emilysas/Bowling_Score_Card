@@ -13,7 +13,7 @@ Game.prototype = {
   play: function () {
     var frame = this.frame();
     var score = player.bowl(frame);
-    this.scorecard.calculateScore(frame, score);
+    this.scorecard.calculateScore(this, score);
     return score;
   },
 
