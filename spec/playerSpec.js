@@ -1,11 +1,10 @@
 describe("Player", function() {
 
-	var player;
+	var player, frame;
 	
 	beforeEach(function() {
   	player = new Player("Emily");
   	frame = new Frame(1);
-  	game = new Game(player, frames)
   });
 
 		it("has a name", function() {
