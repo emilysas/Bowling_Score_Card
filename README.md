@@ -23,42 +23,42 @@ A score card requires:
 
 ###Game Objects
 	
-	Frame is responsible for:
+Frame is responsible for:
 
-	* knowing how many pins (pincount or array of pins)
-	* whether another bowl allowed (need to ask whether another bowl allowed)
-	* know whether strike or spare (expose interface to query strike or spare)
+* knowing how many pins (pincount or array of pins)
+* whether another bowl allowed (need to ask whether another bowl allowed)
+* know whether strike or spare (expose interface to query strike or spare)
 
-	doesn't know:
+but doesn't know:
 
-	* player
-	* score
+* player
+* score
 
-	Player responsible for:
+Player responsible for:
 
-	* knowing name/metrics
-	* bowling
+* knowing name/metrics
+* bowling
 
-	doesn't know:
+but doesn't know:
 
-	* score
+* score
 
-	Game is responsbile for:
+Game is responsbile for:
 
-	* players
-	* score
-	* responsbility for starting/ending
-	* managing running game
+* players
+* score
+* responsbility for starting/ending
+* managing running game
 
-	Scorecard: 
+Scorecard: 
 
-	* calculates score
+* calculates score
 
-Issues Faced
+##Issues Faced
 
 Having made a basic version of this using prototypal javascript, I decided to try to implement some of the best practices advocated by Crockford in [Javascript The Good Parts](http://it-ebooks.info/book/274/). I did this on a branch, and whilst I learned a lot and made a lot of improvements, the resulting programme does not yet work and so has not been incorporated into master. One spent a long time trying to write private methods using anonymous closure - what I didn't realise for a long time is that this wasn't conducive with the style in which I was trying to create my objects. 
 
-Future Intentions
+##Future Intentions
 
 To rethink the OOD, to fix the issues on the bowling_the_good_parts branch and merge this into master. To create a front end using CSS and jQuery. I would like to spend a lot longer learning about best practice in JS.
 
