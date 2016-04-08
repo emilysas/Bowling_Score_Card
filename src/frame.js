@@ -34,7 +34,7 @@ Frame.prototype.isStrikeScored = function() {
 };
 
 Frame.prototype.isSpareScored = function() {
-	return (this.bowlsHadThisFrame === 2 && this.pins === 0) 
+	return (this.bowlsHadThisFrame === 2 && this.pins === 0)
 };
 
 Frame.prototype.pinsStanding = function(pinsKnockedDown) {
@@ -44,4 +44,3 @@ Frame.prototype.pinsStanding = function(pinsKnockedDown) {
 Frame.prototype.resetPins = function() {
 	this.pins = 10;
 };
-

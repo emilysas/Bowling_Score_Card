@@ -45,7 +45,7 @@ Game.prototype.calculateScore = function(score) {
 		if (lastFrame && this.isStrikeLastFrame(lastFrame)){
 			this.calculatePreviousScore("strike", score);
 		};
-	};	
+	};
 };
 
 Game.prototype.calculateFirstScore = function(score) {
@@ -66,7 +66,7 @@ Game.prototype.calculateSecondScore = function(score) {
 		this.addScore(cell, "-");
 		this.runningTotal(score)
 	} else {
-		this.addScore(cell, score)	
+		this.addScore(cell, score)
 		this.addScore(cell, this.getFrameTotal(score))
 		this.runningTotal(score)
 	};
@@ -110,4 +110,3 @@ Game.prototype.getFrameTotal = function (score) {
 Game.prototype.runningTotal = function(score) {
 	this.totalScore += Number(score);
 };
-
