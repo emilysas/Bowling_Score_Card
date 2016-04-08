@@ -1,4 +1,5 @@
-var Game = function(player, frames = []) {
+
+var Game = function(player, frames) {
 	this.player = player;
 	this.playerUsername = player.username;
 	this.frames = frames;
